@@ -1,0 +1,1 @@
+export const token = `?api_token=${localStorage.getItem("token")}`;
