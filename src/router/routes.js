@@ -8,7 +8,7 @@ const meta = { layout: Contained };
 
 export default [
     { path: '/', component: Auth, name: 'auth' },
-    { path: '/create-staff', component: CreateStaff, name: 'createstaff', meta },
+    { path: '/hometown/:id/create-staff', component: CreateStaff, name: 'createstaff', meta },
     { path: '/hometowns', component: Hometowns, name: 'hometowns', meta },
     { path: '/hometown/:id/staff', component: Staff, name: 'staff', meta },
 ];

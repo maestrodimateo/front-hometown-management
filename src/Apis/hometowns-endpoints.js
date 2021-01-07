@@ -1,11 +1,10 @@
 import axios from 'axios';
-import {token} from '../config';
+import { token } from '../config';
 
 const prefix = 'hometown/';
 
 // get all the hometowns
-export async function get_hometowns () {
-    console.log(token);
+export async function get_hometowns() {
     const response = await axios.get(prefix + "all" + token);
     return response.data;
 }
@@ -13,11 +12,11 @@ export async function get_hometowns () {
 // Add a hometown
 export async function add_hometown(label, base_url) {
     try {
-        const response = await axios.post(prefix + "create" + token, { label, base_url});
-        return {status: true, success: response.data.message};
+        const response = await axios.post(prefix + "create" + token, { label, base_url });
+        return { success: true, content: response.data.message };
 
     } catch (error) {
-        return {status: false, error: error.response.data};
+        return { success: false, error: error.response.data };
     }
 }
 
@@ -25,10 +24,10 @@ export async function add_hometown(label, base_url) {
 export async function update_hometown(label, base_url, id) {
     try {
         const response = await axios.put(prefix + `update/${id}` + token, { label, base_url });
-        return { status: true, success: response.data.message };
+        return { success: true, content: response.data.message };
 
     } catch (error) {
-        return { status: false, error: error.response.data };
+        return { success: false, error: error.response.data };
     }
 }
 
@@ -36,7 +35,7 @@ export async function update_hometown(label, base_url, id) {
 export async function delete_hometown(id) {
 
     const response = await axios.delete(prefix + `delete/${id}` + token);
-    return { status: true, success: response.data.message };
+    return { success: true, content: response.data.message };
 }
 
 // Search a hometown
