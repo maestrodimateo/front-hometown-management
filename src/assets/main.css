@@ -16,6 +16,7 @@
 .btn-primary { @apply bg-hakki-400 p-3 rounded shadow hover:bg-hakki-500 text-base }
 .btn-success { @apply bg-green-400 p-3 rounded shadow hover:bg-green-500 text-base }
 .btn-danger { @apply bg-red-400 p-3 rounded shadow hover:bg-red-500 text-base text-gray-200 }
+.btn-dark { @apply bg-gray-900 p-3 rounded shadow hover:bg-gray-700 text-base text-gray-200 }
 
 
 .alert-danger { @apply text-base bg-red-300 text-red-800 p-3 my-3 }

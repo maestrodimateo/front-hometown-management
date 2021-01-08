@@ -6,7 +6,7 @@
         </div>
         <!-- reseach bar -->
         <div class="relative lg:w-2/6" v-if="bar_visible">
-            <input type="search" v-model="name" required class="input-style" :placeholder="'Research a ' + title" @input="$emit('search')">
+            <input type="search" v-model="name" required class="input-style" :placeholder="'Research a ' + title" @input="$emit('search', name)">
             <svg class="input-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -16,12 +16,12 @@
 
 <script>
 export default {
-    props: ['research_name', 'title', 'visible'],
+    emits: ['toggle-hide', 'search'],
+    props: ['title', 'visible'],
     data() {
         return { name: '', bar_visible: true}
     },
     created() {
-        this.name = this.research_name;
         this.bar_visible = (this.visible) ?? true;
     }
 }

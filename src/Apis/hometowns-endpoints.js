@@ -40,7 +40,7 @@ export async function delete_hometown(id) {
 
 // Search a hometown
 export async function search_hometown(label) {
-
+ 
     const response = await axios.post(prefix + "search" + token, { label });
     return response.data.users;
 }

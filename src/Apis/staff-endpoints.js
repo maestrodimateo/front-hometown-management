@@ -14,8 +14,8 @@ export async function create_staff(data) {
 }
 
 // get all the staff members
-export async function get_staff() {
-    const response = await axios.get(prefix + "all" + token);
+export async function get_staff(hometown_id) {
+    const response = await axios.get(prefix + `${hometown_id}/all` + token);
     return response.data;
 }
 

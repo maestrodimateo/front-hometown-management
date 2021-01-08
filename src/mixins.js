@@ -3,10 +3,8 @@ export default {
     data() {
         return {
             visible: {
-                hometown_new: false,
-                password: false,
-                hometown_delete: false,
-                member_delete: false,
+                first: false,
+                second: false
             },
             message: {
                 success: false,

@@ -35,6 +35,7 @@ import {add_hometown, update_hometown} from '../Apis/hometowns-endpoints';
 import mixins from '../mixins';
 
 export default {
+    emits: ['update-key', 'hide'],
     mixins: [mixins],
     props: ['hometown'],
     data() {
