@@ -18,8 +18,14 @@ export default {
             this.visible[element] = !this.visible[element];
         },
 
-        is_success(success = true) {
+        is_success(success = true, field = undefined) {
+            if (field === undefined) {
+
+                return this.message.success === success
+            }
+
             return this.message.success === success
+            && Object.prototype.hasOwnProperty.call(this.message.content, field);
         },
 
         appendFormData(attributes) {
@@ -33,7 +39,7 @@ export default {
         },
 
         get_response(response, updating = null) {
-            
+
             this.message = response
             if (updating !== null) setTimeout(updating, 1000);
         },

@@ -1,5 +1,5 @@
 <template>
-    <div role="card" class="text-white bg-blumine-900 h-96 flex flex-col justify-between">
+    <div role="card" class="text-white bg-blumine-900 h-96 flex flex-col justify-between shadow">
         <div class="h-3/6 relative" @mouseenter="toggle_hide('second')" @mouseleave="toggle_hide('second')">
             <div class="bg-gray-800 bg-opacity-75 absolute w-full h-full flex justify-center items-center" v-if="visible.second">
                 <a download target="_blank" :href="member.photo" class="btn-dark inline-block">

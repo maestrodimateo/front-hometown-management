@@ -9,8 +9,7 @@ export async function connect(email, password) {
 
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('auth', JSON.stringify(response.data.auth));
-        return true
+        return { success: true, content: response.data.message };
     }
-    
-    return response.data.message;
+    return { success: false, content: { 'error': response.data.message } };
 }

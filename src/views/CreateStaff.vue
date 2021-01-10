@@ -15,7 +15,7 @@
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                     </div>
-                    <div role="alert" class="alert-danger" v-if="is_success(false)" v-html="message.content.fullname"></div>
+                    <div role="alert" class="alert-danger" v-if="is_success(false, 'fullname')" v-html="message.content.fullname"></div>
                 </div>
                  <!-- picture upload -->
                 <div class="flex flex-col my-5">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div role="alert" class="alert-danger" v-if="is_success(false)" v-html="message.content.photo"></div>
+                    <div role="alert" class="alert-danger" v-if="is_success(false, 'photo')" v-html="message.content.photo"></div>
                 </div>
 
                 <div class="flex flex-col my-5">
@@ -50,7 +50,7 @@
                         </select>
                         <svg class="fill-current input-svg bg-blumine-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
                     </div>
-                    <div role="alert" class="alert-danger" v-if="is_success(false)" v-html="message.content.status"></div>
+                    <div role="alert" class="alert-danger" v-if="is_success(false, 'status')" v-html="message.content.status"></div>
                 </div>
                 <button type="submit" class="btn-primary">Add staff member</button>
             </form>
