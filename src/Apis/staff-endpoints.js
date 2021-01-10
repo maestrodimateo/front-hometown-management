@@ -13,6 +13,16 @@ export async function create_staff(data) {
 
 }
 
+// update a staff member
+export async function update_staff(data, id) {
+    try {
+        const response = await axios.post(prefix + `update/${id}` + token, data);
+        return { success: true, content: response.data.message };
+    } catch (error) {
+        return { success: false, content: error.response.data };
+    }
+}
+
 // get all the staff members
 export async function get_staff(hometown_id) {
     const response = await axios.get(prefix + `${hometown_id}/all` + token);
@@ -27,4 +37,10 @@ export async function delete_staff(id) {
     } catch (error) {
         return { success: false, content: error.response.data };
     }
+}
+
+// Search a staff member in a hometown
+export async function search(formdata) {
+        const response = await axios.post(prefix + `search` + token, formdata);
+        return response.data.staff
 }

@@ -46,7 +46,7 @@ export default {
     },
 
     mounted() {
-            
+
         this.label = this.hometown.label;
         this.base_url = this.hometown.base_url;
     },

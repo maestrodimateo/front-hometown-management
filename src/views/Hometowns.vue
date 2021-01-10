@@ -4,17 +4,20 @@
 	<div class="mt-5">
 		<p class="text-white mb-5">{{ count }} result(s)</p>
 		<div role="alert" class="alert-success" v-if="is_success()" v-html="message.content"></div>
-		<div class="grid lg:grid-cols-4 gap-4 mb-5">
+		<div class="grid lg:grid-cols-4 gap-4 mb-5" v-if="count !== 0">
 			<Hometown v-for="hometown in hometowns" :key="hometown.id" 
 			@update="setHometown($event)" @deleteHometown="set_hometown($event)" :hometown="hometown"/>
 		</div>
+        <div class="mb-5" v-else>
+            <h2 class="text-2xl text-white">No hometowns found...</h2>
+        </div>
 	</div>
 	
 	<!-- modal for add and update-->
 	<Modal title="Save a hometown" :visible="visible.first">
 		<HometownForm @hide="toggle_hide('first')" @updateKey="get_hometowns" :hometown="hometown"/>
 	</Modal>
-	
+
 	<!-- Modal for delete -->
 	<Modal :title="'Do you really want to delete ' + hometown.label + ' ?'" :visible="visible.second">
 		<div class="my-3 flex justify-between">
@@ -53,9 +56,7 @@ export default {
 			label: "",
 		};
 	},
-	async beforeMount() {
-		await this.get_hometowns();
-	},
+	async mounted() { this.get_hometowns(); },
 	
 	methods: {
 		async get_hometowns() {

@@ -54,7 +54,7 @@
                 </div>
                 <button type="submit" class="btn-primary">Add staff member</button>
             </form>
-    </div> 
+        </div>
 </template>
 
 <script>
@@ -76,25 +76,19 @@ export default {
         onUpload(event) {
             this.photo = event.target.files[0];
         },
-
+ 
         async save() {
-            const data = this.appendFormData(['photo', 'fullname', 'status']);
-            console.log(data);
+            const data = this.appendFormData({
+                'photo': this.photo, 
+                'fullname': this.fullname, 
+                'status': this.status,
+                'hometown_id': this.$route.params.id
+            });
+
             const response = await create_staff(data);
             this.get_response(response);
 
             this.clearAttibutes();
-        },
-
-        appendFormData(attributes) {
-            const formData = new FormData();
-            formData.append('hometown_id', this.$route.params.id);
-            
-            for (const index in attributes) {
-                const name = attributes[index] ;
-                formData.append(name, this[name]);
-            }
-            return formData;
         },
 
         clearAttibutes() {

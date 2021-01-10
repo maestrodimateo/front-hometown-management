@@ -22,10 +22,20 @@ export default {
             return this.message.success === success
         },
 
+        appendFormData(attributes) {
+
+            const formData = new FormData();
+
+            for (const name in attributes) {
+                formData.append(name, attributes[name]);
+            }
+            return formData;
+        },
+
         get_response(response, updating = null) {
             
             this.message = response
             if (updating !== null) setTimeout(updating, 1000);
-        }
+        },
     }
 }
